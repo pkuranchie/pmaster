@@ -1,10 +1,10 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
-from time import sleep
-
+from selenium.webdriver.support import expected_conditions as EC
 
 HAM_MENU_ICON = (By.ID, 'nav-hamburger-menu')
 FOOTER_LINKS = (By.CSS_SELECTOR, '.navFooterMoreOnAmazon a.nav_a')
+SIGN_IN_POPUP_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip a[data-nav-role]')
 
 
 @given('Open Amazon page')
@@ -22,7 +22,13 @@ def click_search(context):
     context.driver.find_element(By.ID, 'nav-search-submit-button').click()
 
 
-@then('Verify hamburger menu icon is present')
+@when('Click Sign In from popup')
+def click_sign_in_popup(context):
+    e = context.driver.wait.until(EC.element_to_be_clickable((SIGN_IN_POPUP_BTN)), message='Sign in btn not clickable')
+    e.click()
+
+
+
 def verify_ham_menu(context):
      context.driver.find_element(*HAM_MENU_ICON)
 
@@ -35,6 +41,9 @@ def verify_footer_links_count(context, expected_amount):
 
     for l in links:
         print(l.text)
+
+
+
 
 
 
