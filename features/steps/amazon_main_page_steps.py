@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
 
 HAM_MENU_ICON = (By.ID, 'nav-hamburger-menu')
 FOOTER_LINKS = (By.CSS_SELECTOR, '.navFooterMoreOnAmazon a.nav_a')
@@ -28,6 +29,15 @@ def click_sign_in_popup(context):
     e.click()
 
 
+@when('Sign In pop up appears')
+def sign_in_popup_appears(context):
+    context.driver.wait.until(EC.element_to_be_clickable((SIGN_IN_POPUP_BTN)), message='Sign in btn not clickable')
+
+
+@when('Wait for {sec} sec')
+def wait_sec(context, sec):
+    sleep(int(sec))
+
 
 def verify_ham_menu(context):
      context.driver.find_element(*HAM_MENU_ICON)
@@ -43,7 +53,10 @@ def verify_footer_links_count(context, expected_amount):
         print(l.text)
 
 
-
+@then('Verify Sign In pop up disappeared')
+def verify_sign_in_disappeared(context):
+    context.driver.wait.until(EC.invisibility_of_element((SIGN_IN_POPUP_BTN)), message='Sign in btn is visible')
+    assert context.driver.current_url == 'https://www.amazon.com/'
 
 
 
