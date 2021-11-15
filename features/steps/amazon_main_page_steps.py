@@ -10,17 +10,17 @@ SIGN_IN_POPUP_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip a[data-nav-role]')
 
 @given('Open Amazon page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open_main_page()
 
 
 @when('Input {search_word} into amazon search')
 def search_amazon(context, search_word):
-    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys(search_word)
+    context.app.header.input_search(search_word)
 
 
 @when('Click on amazon search icon')
 def click_search(context):
-    context.driver.find_element(By.ID, 'nav-search-submit-button').click()
+    context.app.header.click_search()
 
 
 @when('Click Sign In from popup')

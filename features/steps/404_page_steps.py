@@ -23,4 +23,4 @@ def switch_window(context):
     all_window_handles = context.driver.window_handles
     print(all_window_handles)
     context.driver.switch_to.window(all_window_handles[1])  # [0, 1]
-    print(f'Current windown handle (after switch): {context.driver.current_window_handle}')
+    print(f'Current window handle (after switch): {context.driver.current_window_handle}')

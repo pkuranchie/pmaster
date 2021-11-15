@@ -33,3 +33,15 @@ def verity_can_click_through_colors(context):
         print(f'Actual colors, {actual_colors}')
 
     assert expected_colors == actual_colors, f'Error expected {expected_colors} did not match {actual_colors}'
+
+
+@when('Store product name')
+def get_product_name(context):
+    context.current_product_name = context.app.product_page.get_product_name()
+
+
+@when('Click on Add to cart button')
+def click_add_to_cart(context):
+    context.app.product_page.click_add_to_cart()
+
+
