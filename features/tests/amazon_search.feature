@@ -2,10 +2,10 @@
 Feature: test cases for search functionality
   # Enter feature description here
 
-#  Scenario: User can see language options
-#    Given Open Amazon page
-#    When Hover over language options
-#    Then Verify correct options present
+  Scenario: User can see language options
+    Given Open Amazon page
+    When Hover over language options
+    Then Verify correct options present
 
   Scenario: User can select and search in a department
     Given Open Amazon page

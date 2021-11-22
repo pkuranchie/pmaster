@@ -44,6 +44,11 @@ def hover_over_language_options(context):
     context.app.header.hover_over_language_options()
 
 
+@when('Hover over New Arrivals option')
+def hover_over_new_arrivals_options(context):
+    context.app.header.hover_over_new_arrivals_options()
+
+
 @when('Select department by alias {alias}')
 def select_department(context, alias):
     context.app.header.select_department_by_alias(alias)
@@ -72,6 +77,11 @@ def verify_sign_in_disappeared(context):
 @then('Verify correct options present')
 def verify_lang_options_present(context):
     context.app.header.verify_lang_options_present()
+
+
+@then('Verify deals are present')
+def verify_deals_present(context):
+    context.app.header.verify_deals_present()
 
 
 @then('Verify {expected_department} department is selected')
