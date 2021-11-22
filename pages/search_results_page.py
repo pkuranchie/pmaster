@@ -6,6 +6,7 @@ class SearchResults(Page):
     PRODUCT_PRICE = (By.XPATH, "//div[@class='a-section a-spacing-none a-spacing-top-small']/h2/a")
     SEARCH_RESULT_TEXT = By.XPATH, "//span[@class='a-color-state a-text-bold']"
     BOOKS = (By.CSS_SELECTOR, "#nav-subnav[data-category='books']")
+    PC = (By.CSS_SELECTOR, "#nav-subnav[data-category='pc']")
     DEPARTMENT_LOCATOR = (By.CSS_SELECTOR, "#nav-subnav[data-category='{CATEGORY}']")
 
     def get_expected_category_locator(self, expected_category):
